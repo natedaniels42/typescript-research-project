@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Types</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
-    <script src="types.js"></script>
+    <script src="types.js" defer></script>
 </head>
 <body>
     <head>
@@ -22,5 +25,171 @@
         </nav>
     </head>
     <h1>Custom Types</h1>
+    <p>Custom types are a way to use Typescript to define the specific properties that
+        are to be used on an object.  This is by calling the type keyword and defining the 
+        object's properties as well as their datatypes.  This is very similar to using as interface 
+        (see interface page for more information).  Through this lesson we will be building 
+        a voter record type and seeing some examples of it in action.  First, here is an example
+        of the Voter type:
+    </p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;">
+        <p>type Voter = {</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">age: number,</p>
+        <p style="text-indent: 40px;">registered: boolean</p>
+        <p>}</p>
+    </div><br>
+    <p>Note that the Voter object has 3 properties: name, age and registered, 
+        which have values of string, number, and boolean, respectively.  To be valid it must
+        only have those 3 specific properties and they must each have their specific data type. 
+        Here are some examples of valid and invalid Todos:
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;">
+        <h3>Valid</h3>
+        <p>const voter1: Voter = {</p>
+        <p style="text-indent: 40px;">name: 'Joe',</p>       
+        <p style="text-indent: 40px;">age: 25,</p>
+        <p style="text-indent: 40px;">registered: true</p>
+        <p>}</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter2: Voter = {</p>
+        <p style="text-indent: 40px;">name: 'Jessica',</p>       
+        <p style="text-indent: 40px;">age: 42,</p>
+        <p style="text-indent: 40px;">registered: 'Yes'</p>
+        <p>}</p>
+        <p>// Notice that registered is a string instead of a boolean</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter3: Voter = {</p>
+        <p style="text-indent: 40px;">name: 'Timmy',</p>       
+        <p style="text-indent: 40px;">age: 5</p>
+        <p>}</p>
+        <p>// Invalid because it is missing the registered property</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter4: Voter = {</p>
+        <p style="text-indent: 40px;">name: 'Courtney',</p>       
+        <p style="text-indent: 40px;">age: 21,</p>
+        <p style="text-indent: 40px;">registered: true,</p>
+        <p style="text-indent: 40px;">favoriteFood: 'sushi'</p>
+        <p>}</p>
+        <p>// FavoriteFood definitely does not belong on a voter record</p>
+    </div><br>
+    <p>Once again, to correctly follow the custom type the object must have all the same properties 
+        as the interface, it must have no extra properties, and the types must match those
+        listed in the type definition.</p><br>
+    <p>A type can also be used to define a function. Here is an example
+        of a typed function: </p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;">
+        <p>type VoterFunc = {</p>
+        <p style="text-indent: 40px;">(voter: Voter, voters: Voter[]): void</p>       
+        <p>}</p>
+    </div><br>
+    <p>In this specific function type, the function will take in 2 parameters: 
+        voter which is a Voter type and voters which is an array of voters.  It then has a 
+        void return value meaning nothing is returned. Here is an example of the 
+        implementation of our VoterFunc type:</p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <p>const addVoter:VoterFunc = (voter: Voter, voters: Voter[]) => {</p>
+        <p style="text-indent: 40px;">voters.push(voter)</p>       
+        <p>}</p>
+    </div><br>
+    <p>In this function we are taking a Voter and adding it to an array of Voters.</p>
+    <p>Now let's see if we can build our own Voters following our Voter type</p>
+    <div id="sample" style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;">
+        <h2>Voter Type</h2>
+        <p>type Voter = {</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">age: number,</p>
+        <p style="text-indent: 40px;">registered: boolean</p>
+        <p>}</p>
+    </div>
+    <div id="play-box">
+        <h2>Build a Voter that fits the type above to add it to the list:</h2>
+        <div style="background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 20px;
+        width: 50%;">
+        <form id="voter-form">
+            <label style="text-indent: 40px;" for="property">Property:</label>
+            <input id="property" name="property" type="text"><br>
+            <label style="text-indent: 40px;" for="value">Value:</label>
+            <input id="value" name="value" type="text"><br>
+            <button id="form-button" type="submit">Add</button>
+        </form>
+            <p>const voter: Voter = {</p>
+            <div id="voter-inner"></div>
+            <p>}</p>
+            <div id="success" style="display: none">
+                <img src="../checkmark-24.png" width="16px">
+                <p>You Got It!</p>
+            </div>
+            <div id="wrong" style="display: none">
+                <img src="../x-mark-24.png" width="16px">
+                <p>Not Quite. Try again</p>
+            </div>
+            <button id="submit">Submit</button>
+            <button id="reset" style="visibility: hidden">Reset</button>
+        </div>
+    </div>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 50%;
+    margin-top: 10px">
+        <h2>Voter List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Registered</td>
+                </tr>
+            </thead>
+            <tbody id="voter-list"></tbody>
+        </table>
+    </div>
 </body>
 </html>
