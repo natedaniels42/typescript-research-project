@@ -25,3 +25,58 @@ text-align: center;
 .exampleforms{
     display: flex;
 }
+
+body {
+    width: 75%;
+    margin: auto;
+    background-color: lightsteelblue;
+}
+
+p {
+    letter-spacing: .1rem;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: grey;
+    color: lightsteelblue;
+    transition: .5s background-color, .5s color;
+}
+
+.code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 45%;
+    margin: 10px;
+}
+
+.indent {
+    text-indent: 40px;
+}
+
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
