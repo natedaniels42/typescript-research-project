@@ -8,6 +8,24 @@ html {
     font-family: 'Dosis', sans-serif;
 }
 
+.info{
+    margin: 20px 10px;
+}
+
+.textarea{
+    margin: 10px;
+}
+
+.numberarrdiv, .stringarrdiv {
+    width: 400px;
+text-align: center;
+
+}
+
+.exampleforms{
+    display: flex;
+}
+
 body {
     width: 75%;
     margin: auto;
