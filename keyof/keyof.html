@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="../style.css">
     <script src="keyof.js" defer></script>
 </head>
+
 <body>
+
     <head>
         <nav>
             <ul>
@@ -21,6 +24,53 @@
             </ul>
         </nav>
     </head>
-    <h1>Keyof</h1>
+    <div class="container">
+        <h1>Keyof Type Operator</h1>
+        <p>The keyof operator takes an object type and produces a string or numeric literal union of its keys. The following type P is the same type as “x” | “y”:</p>
+        <textarea disabled name="exbox1" id="exbox1" style="width: 450px; height: 100px;">type Point = { x: number; y: number };
+type P = keyof Point;   //type P is keyof Point</textarea>
+        <p>If the type has a string or number index signature, keyof will return those types instead:</p>
+        <textarea disabled name="exbox2" id="exbox2" style="width: 450px; height: 120px;">type Arrayish = { [n: number]: unknown };
+type A = keyof Arrayish;    //type A is number
+
+
+type Mapish = { [k: string]: boolean };
+type M = keyof Mapish;  //type M is string | number</textarea>
+
+        <p>Note that in this example, M is string | number — this is because JavaScript object keys are always coerced to a string, so obj[0] is always the same as obj["0"]. keyof types become especially useful when combined with mapped types.</p>
+
+        <h2>Example:</h2>
+        <textarea disabled name="message" style="width: 730px; height: 270px;">interface MealOrder { //MealOrder interface
+    starter: string;
+    entre: string;
+    drink: string;
+    dessert: string
+}
+        
+const myOrder: MealOrder = {    //  myOrder object of type MealOrder
+    starter: 'salad',
+    entre: 'pasta',
+    drink: 'pepsi',
+    dessert: 'ice cream'
+}
+
+//  Function to change an item of myOrder
+function changeMenu(order:MealOrder, orderEntry: keyof MealOrder, change:string){
+    order[orderEntry] = change;</textarea>
+        
+        <form id="chageOrderForm" class="changeOrderForm">
+            <label for="orderItem">Choose an item to change:</label>
+            <select id="orderItem" name="orderItem">
+                <option value="starter">starter</option>
+                <option value="entre">entre</option>
+                <option value="drink">drink</option>
+                <option value="dessert">dessert</option>
+            </select>
+            <input type="text" name="newitem" id="newitem">
+            <input type="submit" id="orderChangebtn" class="orderChangebtn"><br>
+            <textarea disabled name="orderResults" id="orderResults" style="width: 300px; height: 100px;"></textarea>
+        </form>
+    </div>
 </body>
+
 </html>

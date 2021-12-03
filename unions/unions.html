@@ -22,5 +22,26 @@
         </nav>
     </head>
     <h1>Generics Vs. Unions</h1>
+    <p>TypeScript's type system allows you to build new types by combining multiple types. The first way to combine types you might see is a union type. A union type is a type formed from two or more other types, representing values that may be any one of those types. We refer to each of these types as the union’s members.</p>
+    <textarea disabled style="width: 630px; height: 300px;">function getArrayWithGenerics<T>(items : T[] ) : T[] {
+    return new Array<T>().concat(items);
+}
+    
+function getArrayWithUnions(items : number[]|string[] ) : number[]|string[] {
+    return new Array().concat(items);
+}
+            
+let myNumArr = getArrayWithGenerics<number>([100, 200, 300]);
+let myStrArr = getArrayWithGenerics<string>(["Hello", "World"]);
+    
+let myNumArr2 = getArrayWithUnions([100, 200, 300]);
+let myStrArr2 = getArrayWithUnions(["Hello", "World"]);
+            
+myNumArr.push(400); // OK
+myStrArr.push("Hello TypeScript"); // OK
+    
+myNumArr2.push(400); // NOT OK
+myStrArr2.push("Hello TypeScript"); // NOT OK</textarea>
+
 </body>
 </html>
