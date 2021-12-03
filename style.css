@@ -114,3 +114,8 @@ img {
 td {
     padding: 5px;
 }
+
+#index-main {
+    width: 100vw;
+    height: 90vh;   
+}
