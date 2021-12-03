@@ -18,8 +18,7 @@ html {
 
 .numberarrdiv, .stringarrdiv {
     width: 400px;
-text-align: center;
-
+    text-align: center;
 }
 
 .exampleforms{
@@ -30,10 +29,12 @@ body {
     width: 75%;
     margin: auto;
     background-color: lightsteelblue;
+    opacity: .7;
 }
 
 p {
     letter-spacing: .1rem;
+    line-height: 1.5rem;
 }
 
 ul {
@@ -86,10 +87,30 @@ input, select {
     padding: 5px;
     border-radius: 10px;
     margin: 2px;
+    cursor: pointer;
 }
-
 button {
     padding: 5px;
     border-radius: 10px;
     background-color: lightsteelblue;
+    cursor: pointer;
+}
+
+img {
+    margin-right: 5px;
+}
+
+#success p {
+    color: green;
+}
+
+#success, #wrong {
+    margin-top: 5px;
+}
+
+#wrong p {
+    color: red;
+}
+td {
+    padding: 5px;
 }

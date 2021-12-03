@@ -147,6 +147,30 @@
             </thead>
             <tbody id="todo-list"></tbody>
         </table>
+    </div><br>
+    <h2>The differences between interfaces and types</h2>
+    <p>In modern Typescript, interfaces and types are almost interchangeable.  For the most part,
+        they act exactly the same. However, there is one key difference: once a type is defined it 
+        can't be changed while you can add properties to an interface by declaring a new interface 
+        of the same name.  The one thing you can't do is change an already defined property type.
+        let's look at an example:
+    </p><br>
+    <div class="examples">
+
+        <div class="code">
+            <p>interface Todo {</p>
+            <p class="indent">name: string,</p>       
+            <p class="indent">description: string,</p>
+            <p class="indent">daysToComplete: number</p>
+            <p>}</p>
+            <p>// Our original interface</p>
+        </div><br>
+        <div class="code">
+            <p>interface Todo {</p>
+            <p class="indent">completed: boolean</p>       
+            <p>}</p>
+            <p>// the completed property has now been added to our interface</p>
+        </div><br>
     </div>
 </body>
 </html>

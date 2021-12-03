@@ -31,13 +31,13 @@ submit.addEventListener('click', function (event) {
     event.preventDefault();
     var todoKeys = Object.keys(todoObj);
     if (todoKeys.length === 3
-        && todoKeys.includes('name')
-        && todoKeys.includes('description')
-        && todoKeys.includes('daysToComplete')
+        && todoKeys.indexOf('name') !== -1
+        && todoKeys.indexOf('description') !== -1
+        && todoKeys.indexOf('daysToComplete') !== -1
         && typeof todoObj.name === 'string'
         && typeof todoObj.description === 'string'
         && typeof todoObj.daysToComplete === 'number') {
-        success.style.display = 'contents';
+        success.style.display = 'flex';
         reset.style.visibility = 'visible';
         var newTodo = todoObj;
         addTodo(newTodo, todoList);
@@ -48,7 +48,7 @@ submit.addEventListener('click', function (event) {
         value.value = '';
     }
     else {
-        wrong.style.display = 'contents';
+        wrong.style.display = 'flex';
         reset.style.visibility = 'visible';
     }
     submit.style.visibility = 'hidden';
