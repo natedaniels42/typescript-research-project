@@ -22,5 +22,274 @@
         </nav>
     </head>
     <h1>Partial/Required</h1>
+    <P>Partial and Required are ways that we can still use a specific type or interface but
+        changing the rules for which properties we need to include.  But before talking about 
+        Partial and Required we first need to look at optional properties.
+    </P><br>
+    <p>An optional property is a property that is included in the interface or type definition 
+        but if it is not included it won't cause an error.  We define a property as optional 
+        by including a ? after the property name.  Let's look at our Voter type again but This
+        time with optional properties: 
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <p>type Voter = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: string,</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: number,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered?: boolean</p>
+        <p>}</p>
+        <p>// registered is now optional</p>
+    </div><br>
+    <p>The registered property is now listed as optional.  Let's look at some examples to see 
+        how this changes our results:
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter1: Voter = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Joe',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 25,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: true</p>
+        <p>}</p>
+        <p>// This example still has all the properties with the proper types so it remains valid</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter2: Voter = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Jessica',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 42,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: 'Yes'</p>
+        <p>}</p>
+        <p>// Even if a property is optional if included it must adhere to the specific type defined</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter3: Voter = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p>}</p>
+        <p>// This example is now valid since registered is optional</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter4: Voter = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
+        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p>}</p>
+        <p>// FavoriteFood still does not belong on a voter record</p>
+    </div><br>
+    <p>It is important to remember that an optional property if included must be of the 
+        proper type. Otherwise, it will cause an error.
+    </p><br>
+    <p>The Partial type allows you to use a specific custom type but then assign all the 
+        values to optional. Here are some examples and how it affects the results:
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter5: Partial&ltvoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Joe',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 25,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: true</p>
+        <p>}</p>
+        <p>// Of course including all values remains valid</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter6: Partial&ltVoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p>}</p>
+        <p>// This example is valid since registered is optional</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter7: Partial&ltVoter&gt = {}</p>
+        <p>// With partials an empty object is valid since none of the properties are required</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter8: Partial&ltVoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
+        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p>}</p>
+        <p>// FavoriteFood still does not belong on a voter record</p>
+    </div><br>
+    <p>Required does exactly the opposite of Partial: all the properties beome required.
+        If none of the properties were set to optional in the first place then this will not
+        change anything.  However, if there are optional properties and you want to ensure
+        all the properties are there, you can use Required.  Here are some examples:
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Valid</h3>
+        <p>const voter9: Required&ltvoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem;">name: 'Joe',</p>       
+        <p style="text-indent: 40px; line-height: .5rem;">age: 25,</p>
+        <p style="text-indent: 40px; line-height: .5rem;">registered: true</p>
+        <p>}</p>
+        <p>// Of course including all values remains valid</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter10: Required&ltVoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p>}</p>
+        <p>// This example is invalid even though the original type definition lists
+            registered as optional
+        </p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter11: Required&ltVoter&gt = {}</p>
+        <p>// All properites are required</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const voter12: Required&ltVoter&gt = {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
+        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
+        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p>}</p>
+        <p>// FavoriteFood still does not belong on a voter record</p>
+    </div><br>
+    <div id="sample" style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: .5rem;">
+        <h2>Voter Type</h2>
+        <p>type Voter = {</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">age: number,</p>
+        <p style="text-indent: 40px;">registered?: boolean</p>
+        <p>}</p>
+    </div>
+    <div id="play-box">
+        <h2>Try changing from Partial and Required and try different combinations of
+            properties to see how the behavior changes (note: when adding partials to
+            the voter list you will have undefined values if you omit that property.  That is still
+            acceptable behavior for this exercise):
+        </h2>
+        <div style="background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 20px;
+        width: 50%;
+        line-height: .5rem;">
+        <label for="change">Change:</label>
+        <select name="change" id="change">
+            <option value="Partial">Partial</option>
+            <option value="Required">Required</option>
+        </select>
+        <form id="voter-form">
+            <label style="text-indent: 40px;" for="property">Property:</label>
+            <input id="property" name="property" type="text"><br>
+            <label style="text-indent: 40px;" for="value">Value:</label>
+            <input id="value" name="value" type="text"><br>
+            <button id="form-button" type="submit">Add</button>
+        </form>
+            <p id="begin">const voter: Partial&ltVoter&gt = {</p>
+            <div id="voter-inner"></div>
+            <p>}</p>
+            <div id="success" style="display: none">
+                <img src="../checkmark-24.png" width="16px">
+                <p>You Got It!</p>
+            </div>
+            <div id="wrong" style="display: none">
+                <img src="../x-mark-24.png" width="16px">
+                <p>Not Quite. Try again</p>
+            </div>
+            <button id="submit">Submit</button>
+            <button id="reset" style="visibility: hidden">Reset</button>
+        </div>
+    </div>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 50%;
+    line-height: .5rem;
+    margin-top: 10px">
+        <h2>Voter List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Registered</td>
+                </tr>
+            </thead>
+            <tbody id="voter-list"></tbody>
+        </table>
+    </div>
 </body>
 </html>

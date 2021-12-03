@@ -22,5 +22,175 @@
         </nav>
     </head>
     <h1>Interfaces</h1>
+    <p>Interfaces are a way for Typescript to describe the shape of a complex data structure.  
+        This is done by building an interface object with the property names.
+        The type of each property is defined in the interface.  This provides the guide of the 
+        of the object that will be built.  Throughout this exercise we will build a todo list.
+        Let's start by building the Todo interface:
+    </p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: .5rem;">
+        <p>interface Todo {</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">description: string,</p>
+        <p style="text-indent: 40px;">daysToComplete: number</p>
+        <p>}</p>
+    </div><br>
+    <p>Note that the Todo object has 3 properties: name, description and daysToComplete, 
+        which have values of string, string, and number, respectively.  To be valid it must
+        only have those 3 specific properties and they must each have their specific data type. 
+        Here are some examples of valid and invalid Todos:
+    </p><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: .5rem;">
+        <h3>Valid</h3>
+        <p>const todo1:Todo {</p>
+        <p style="text-indent: 40px;">name: 'chore',</p>       
+        <p style="text-indent: 40px;">description: 'sweep the floors',</p>
+        <p style="text-indent: 40px;">daysToComplete: 5</p>
+        <p>}</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const todo2:Todo {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">description: 'sweep the floors',</p>
+        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: '5'</p>
+        <p>}</p>
+        <p>// Notice that daysToComplete is a string and not a number</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const todo3:Todo {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: 5</p>
+        <p>}</p>
+        <p>// Invalid because it is missing the description property</p>
+    </div><br>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <h3>Invalid</h3>
+        <p>const todo4:Todo {</p>
+        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
+        <p style="text-indent: 40px; line-height: .5rem">description: 'sweep the floors',</p>
+        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: 5</p>
+        <p style="text-indent: 40px; line-height: .5rem">completed: true</p>
+        <p>}</p>
+        <p>// While a completed boolean is a good idea for a todo, it is not in the interface</p>
+    </div><br>
+    <p>Once again, to correctly follow the interface the object must have all the same properties 
+        as the interface, it must have no extra properties, and the types must match those
+        listed in the interface.</p><br>
+    <p>An interface can also be used to describe a function. Here is an example
+        of an interface implementation on a function: </p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;">
+        <p>interface TodoFunc {</p>
+        <p style="text-indent: 40px;">(todo: Todo, todos: Todo[]): void</p>       
+        <p>}</p>
+    </div><br>
+    <p>In this specific interface, the function will take in 2 parameters: 
+        todo which is a Todo and todos which is an array of Todos.  It then has a 
+        void return value meaning nothing is returned. Here is an example of the 
+        implementation of our TodoFunc interface:</p>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: 1rem;">
+        <p>const addTodo:TodoFunc = (todo: Todo, todos: Todo[]) => {</p>
+        <p style="text-indent: 40px; line-height: .5rem">todos.push(todo)</p>       
+        <p>}</p>
+    </div><br>
+    <p>In this function we are taking a todo and adding it to an array of todos.</p>
+    <p>Now let's see if we can build our own Todos following our todo interface</p>
+    <div id="sample" style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 30%;
+    line-height: .5rem;">
+        <h2>Todo Interface</h2>
+        <p>interface Todo {</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">description: string,</p>
+        <p style="text-indent: 40px;">daysToComplete: number</p>
+        <p>}</p>
+    </div>
+    <div id="play-box">
+        <h2>Build a Todo that fits the interface above to add it to the list:</h2>
+        <div style="background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 20px;
+        width: 50%;
+        line-height: .5rem;">
+        <form id="todo-form">
+            <label style="text-indent: 40px;" for="property">Property:</label>
+            <input id="property" name="property" type="text"><br>
+            <label style="text-indent: 40px;" for="value">Value:</label>
+            <input id="value" name="value" type="text"><br>
+            <button id="form-button" type="submit">Add</button>
+        </form>
+            <p>const todo: Todo = {</p>
+            <div id="todo-inner"></div>
+            <p>}</p>
+            <div id="success" style="display: none">
+                <img src="../checkmark-24.png" width="16px">
+                <p>You Got It!</p>
+            </div>
+            <div id="wrong" style="display: none">
+                <img src="../x-mark-24.png" width="16px">
+                <p>Not Quite. Try again</p>
+            </div>
+            <button id="submit">Submit</button>
+            <button id="reset" style="visibility: hidden">Reset</button>
+        </div>
+    </div>
+    <div style="background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 50%;
+    line-height: .5rem;
+    margin-top: 10px">
+        <h2>Todo List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Days</td>
+                </tr>
+            </thead>
+            <tbody id="todo-list"></tbody>
+        </table>
+    </div>
 </body>
 </html>
