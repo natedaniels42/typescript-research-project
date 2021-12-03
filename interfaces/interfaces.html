@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interfaces</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <script src="interfaces.js" defer></script>
 </head>
@@ -32,8 +35,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <p>interface Todo {</p>
         <p style="text-indent: 40px;">name: string,</p>       
         <p style="text-indent: 40px;">description: string,</p>
@@ -49,8 +51,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <h3>Valid</h3>
         <p>const todo1:Todo {</p>
         <p style="text-indent: 40px;">name: 'chore',</p>       
@@ -66,9 +67,9 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const todo2:Todo {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">description: 'sweep the floors',</p>
-        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: '5'</p>
+        <p style="text-indent: 40px;">name: 'chore',</p>       
+        <p style="text-indent: 40px;">description: 'sweep the floors',</p>
+        <p style="text-indent: 40px;">daysToComplete: '5'</p>
         <p>}</p>
         <p>// Notice that daysToComplete is a string and not a number</p>
     </div><br>
@@ -80,8 +81,8 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const todo3:Todo {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: 5</p>
+        <p style="text-indent: 40px;">name: 'chore',</p>       
+        <p style="text-indent: 40px;">daysToComplete: 5</p>
         <p>}</p>
         <p>// Invalid because it is missing the description property</p>
     </div><br>
@@ -93,10 +94,10 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const todo4:Todo {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'chore',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">description: 'sweep the floors',</p>
-        <p style="text-indent: 40px; line-height: .5rem">daysToComplete: 5</p>
-        <p style="text-indent: 40px; line-height: .5rem">completed: true</p>
+        <p style="text-indent: 40px;">name: 'chore',</p>       
+        <p style="text-indent: 40px;">description: 'sweep the floors',</p>
+        <p style="text-indent: 40px;">daysToComplete: 5</p>
+        <p style="text-indent: 40px;">completed: true</p>
         <p>}</p>
         <p>// While a completed boolean is a good idea for a todo, it is not in the interface</p>
     </div><br>
@@ -125,7 +126,7 @@
     width: 30%;
     line-height: 1rem;">
         <p>const addTodo:TodoFunc = (todo: Todo, todos: Todo[]) => {</p>
-        <p style="text-indent: 40px; line-height: .5rem">todos.push(todo)</p>       
+        <p style="text-indent: 40px;">todos.push(todo)</p>       
         <p>}</p>
     </div><br>
     <p>In this function we are taking a todo and adding it to an array of todos.</p>
@@ -134,8 +135,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <h2>Todo Interface</h2>
         <p>interface Todo {</p>
         <p style="text-indent: 40px;">name: string,</p>       
@@ -149,8 +149,7 @@
         border: 1px solid #999;
         display: block;
         padding: 20px;
-        width: 50%;
-        line-height: .5rem;">
+        width: 50%;">
         <form id="todo-form">
             <label style="text-indent: 40px;" for="property">Property:</label>
             <input id="property" name="property" type="text"><br>
@@ -178,7 +177,6 @@
     display: block;
     padding: 20px;
     width: 50%;
-    line-height: .5rem;
     margin-top: 10px">
         <h2>Todo List</h2>
         <table>

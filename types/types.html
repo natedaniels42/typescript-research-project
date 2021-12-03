@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Types</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <script src="types.js" defer></script>
 </head>
@@ -33,8 +36,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <p>type Voter = {</p>
         <p style="text-indent: 40px;">name: string,</p>       
         <p style="text-indent: 40px;">age: number,</p>
@@ -50,8 +52,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <h3>Valid</h3>
         <p>const voter1: Voter = {</p>
         <p style="text-indent: 40px;">name: 'Joe',</p>       
@@ -67,9 +68,9 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter2: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Jessica',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 42,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: 'Yes'</p>
+        <p style="text-indent: 40px;">name: 'Jessica',</p>       
+        <p style="text-indent: 40px;">age: 42,</p>
+        <p style="text-indent: 40px;">registered: 'Yes'</p>
         <p>}</p>
         <p>// Notice that registered is a string instead of a boolean</p>
     </div><br>
@@ -81,8 +82,8 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter3: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p style="text-indent: 40px;">name: 'Timmy',</p>       
+        <p style="text-indent: 40px;">age: 5</p>
         <p>}</p>
         <p>// Invalid because it is missing the registered property</p>
     </div><br>
@@ -94,10 +95,10 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter4: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
-        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p style="text-indent: 40px;">name: 'Courtney',</p>       
+        <p style="text-indent: 40px;">age: 21,</p>
+        <p style="text-indent: 40px;">registered: true,</p>
+        <p style="text-indent: 40px;">favoriteFood: 'sushi'</p>
         <p>}</p>
         <p>// FavoriteFood definitely does not belong on a voter record</p>
     </div><br>
@@ -126,7 +127,7 @@
     width: 30%;
     line-height: 1rem;">
         <p>const addVoter:VoterFunc = (voter: Voter, voters: Voter[]) => {</p>
-        <p style="text-indent: 40px; line-height: .5rem">voters.push(voter)</p>       
+        <p style="text-indent: 40px;">voters.push(voter)</p>       
         <p>}</p>
     </div><br>
     <p>In this function we are taking a Voter and adding it to an array of Voters.</p>
@@ -135,8 +136,7 @@
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <h2>Voter Type</h2>
         <p>type Voter = {</p>
         <p style="text-indent: 40px;">name: string,</p>       
@@ -150,8 +150,7 @@
         border: 1px solid #999;
         display: block;
         padding: 20px;
-        width: 50%;
-        line-height: .5rem;">
+        width: 50%;">
         <form id="voter-form">
             <label style="text-indent: 40px;" for="property">Property:</label>
             <input id="property" name="property" type="text"><br>
@@ -179,7 +178,6 @@
     display: block;
     padding: 20px;
     width: 50%;
-    line-height: .5rem;
     margin-top: 10px">
         <h2>Voter List</h2>
         <table>

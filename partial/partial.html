@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <script src="partial.js" defer></script>
 </head>
@@ -38,9 +41,9 @@
     width: 30%;
     line-height: 1rem;">
         <p>type Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: string,</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: number,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered?: boolean</p>
+        <p style="text-indent: 40px;">name: string,</p>       
+        <p style="text-indent: 40px;">age: number,</p>
+        <p style="text-indent: 40px;">registered?: boolean</p>
         <p>}</p>
         <p>// registered is now optional</p>
     </div><br>
@@ -55,9 +58,9 @@
     line-height: 1rem;">
         <h3>Valid</h3>
         <p>const voter1: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Joe',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 25,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true</p>
+        <p style="text-indent: 40px;">name: 'Joe',</p>       
+        <p style="text-indent: 40px;">age: 25,</p>
+        <p style="text-indent: 40px;">registered: true</p>
         <p>}</p>
         <p>// This example still has all the properties with the proper types so it remains valid</p>
     </div><br>
@@ -69,9 +72,9 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter2: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Jessica',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 42,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: 'Yes'</p>
+        <p style="text-indent: 40px;">name: 'Jessica',</p>       
+        <p style="text-indent: 40px;">age: 42,</p>
+        <p style="text-indent: 40px;">registered: 'Yes'</p>
         <p>}</p>
         <p>// Even if a property is optional if included it must adhere to the specific type defined</p>
     </div><br>
@@ -83,8 +86,8 @@
     line-height: 1rem;">
         <h3>Valid</h3>
         <p>const voter3: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p style="text-indent: 40px;">name: 'Timmy',</p>       
+        <p style="text-indent: 40px;">age: 5</p>
         <p>}</p>
         <p>// This example is now valid since registered is optional</p>
     </div><br>
@@ -96,10 +99,10 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter4: Voter = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
-        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p style="text-indent: 40px;">name: 'Courtney',</p>       
+        <p style="text-indent: 40px;">age: 21,</p>
+        <p style="text-indent: 40px;">registered: true,</p>
+        <p style="text-indent: 40px;">favoriteFood: 'sushi'</p>
         <p>}</p>
         <p>// FavoriteFood still does not belong on a voter record</p>
     </div><br>
@@ -117,9 +120,9 @@
     line-height: 1rem;">
         <h3>Valid</h3>
         <p>const voter5: Partial&ltvoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Joe',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 25,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true</p>
+        <p style="text-indent: 40px;">name: 'Joe',</p>       
+        <p style="text-indent: 40px;">age: 25,</p>
+        <p style="text-indent: 40px;">registered: true</p>
         <p>}</p>
         <p>// Of course including all values remains valid</p>
     </div><br>
@@ -131,8 +134,8 @@
     line-height: 1rem;">
         <h3>Valid</h3>
         <p>const voter6: Partial&ltVoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p style="text-indent: 40px;">name: 'Timmy',</p>       
+        <p style="text-indent: 40px;">age: 5</p>
         <p>}</p>
         <p>// This example is valid since registered is optional</p>
     </div><br>
@@ -154,10 +157,10 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter8: Partial&ltVoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
-        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p style="text-indent: 40px;">name: 'Courtney',</p>       
+        <p style="text-indent: 40px;">age: 21,</p>
+        <p style="text-indent: 40px;">registered: true,</p>
+        <p style="text-indent: 40px;">favoriteFood: 'sushi'</p>
         <p>}</p>
         <p>// FavoriteFood still does not belong on a voter record</p>
     </div><br>
@@ -174,9 +177,9 @@
     line-height: 1rem;">
         <h3>Valid</h3>
         <p>const voter9: Required&ltvoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem;">name: 'Joe',</p>       
-        <p style="text-indent: 40px; line-height: .5rem;">age: 25,</p>
-        <p style="text-indent: 40px; line-height: .5rem;">registered: true</p>
+        <p style="text-indent: 40px;">name: 'Joe',</p>       
+        <p style="text-indent: 40px;">age: 25,</p>
+        <p style="text-indent: 40px;">registered: true</p>
         <p>}</p>
         <p>// Of course including all values remains valid</p>
     </div><br>
@@ -188,8 +191,8 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter10: Required&ltVoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Timmy',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 5</p>
+        <p style="text-indent: 40px;">name: 'Timmy',</p>       
+        <p style="text-indent: 40px;">age: 5</p>
         <p>}</p>
         <p>// This example is invalid even though the original type definition lists
             registered as optional
@@ -213,19 +216,21 @@
     line-height: 1rem;">
         <h3>Invalid</h3>
         <p>const voter12: Required&ltVoter&gt = {</p>
-        <p style="text-indent: 40px; line-height: .5rem">name: 'Courtney',</p>       
-        <p style="text-indent: 40px; line-height: .5rem">age: 21,</p>
-        <p style="text-indent: 40px; line-height: .5rem">registered: true,</p>
-        <p style="text-indent: 40px; line-height: .5rem">favoriteFood: 'sushi'</p>
+        <p style="text-indent: 40px;">name: 'Courtney',</p>       
+        <p style="text-indent: 40px;">age: 21,</p>
+        <p style="text-indent: 40px;">registered: true,</p>
+        <p style="text-indent: 40px;">favoriteFood: 'sushi'</p>
         <p>}</p>
         <p>// FavoriteFood still does not belong on a voter record</p>
     </div><br>
+    <p>Now let's try practicing with Partial and Required.  Here is a reminder of our 
+        Voter type from before:
+    </p>
     <div id="sample" style="background-color: #eee;
     border: 1px solid #999;
     display: block;
     padding: 20px;
-    width: 30%;
-    line-height: .5rem;">
+    width: 30%;">
         <h2>Voter Type</h2>
         <p>type Voter = {</p>
         <p style="text-indent: 40px;">name: string,</p>       
@@ -243,8 +248,7 @@
         border: 1px solid #999;
         display: block;
         padding: 20px;
-        width: 50%;
-        line-height: .5rem;">
+        width: 50%;">
         <label for="change">Change:</label>
         <select name="change" id="change">
             <option value="Partial">Partial</option>
@@ -277,7 +281,6 @@
     display: block;
     padding: 20px;
     width: 50%;
-    line-height: .5rem;
     margin-top: 10px">
         <h2>Voter List</h2>
         <table>
