@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', e => {
 
         let output = (<HTMLInputElement>document.getElementById('numResult')).value;
 
-        (<HTMLInputElement>document.getElementById('numResult')).value = `${lastItem(numArray)} is the last item of the [${numArray}] array`
-        console.log(lastItem(numArray))
+        (<HTMLInputElement>document.getElementById('numResult')).value = `The number ${lastItem(numArray)} is the last item of the [${numArray}] array`
+        //console.log(lastItem(numArray))
         
     })
 
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', e => {
 
         let output = (<HTMLInputElement>document.getElementById('strResult')).value;
 
-        (<HTMLInputElement>document.getElementById('strResult')).value = `${lastItem(strArray)} is the last item of the [${strArray}] array`
-        console.log(lastItem(strArray))
+        (<HTMLInputElement>document.getElementById('strResult')).value = `The string ${lastItem(strArray)} is the last item of the [${strArray}] array`
+        //console.log(lastItem(strArray))
         
     })
 
